@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Editar Ape</title>
+</head>
+<body>
+
+<h1>Editar Ape</h1>
+
+<form action="/ape/editar" method="post">
+    <input type="hidden" name="email" th:value="${ape.email}" />
+    
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" th:value="${ape.name}" required />
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" th:value="${ape.email}" required />
+    
+    <label for="id">Id:</label>
+    <input type="text" id="id" name="id" th:value="${ape.id}" required />
+
+    <!-- Outros campos que você deseja editar -->
+    
+    <button type="submit">Salvar Alterações</button>
+</form>
+
+</body>
+</html>

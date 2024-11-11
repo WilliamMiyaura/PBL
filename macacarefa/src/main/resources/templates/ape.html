@@ -1,0 +1,40 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<h1>CRUD de Apes</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ape : ${ape}">
+            <td th:text="${ape.name}"></td>
+            <td th:text="${ape.email}"></td>
+            <td>
+                <form action="/ape/remover" method="post">
+                    <input type="hidden" name="email" th:value="${ape.email}" />
+                    <button type="submit">Remover</button>
+                </form>
+               <button type="button">
+    <a th:href="@{/ape/editarApe/{email}(email=${ape.email})}">Editar</a>
+</button>
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a href="/cadastro">
+    <button type="button"> Adicionar Ape </button>
+</a>
+
+<script>
+    function editarApe(email) {
+        window.location.href = 'ape/editarApe/' + email;
+    }
+</script>
+</html>
